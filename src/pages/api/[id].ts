@@ -24,6 +24,18 @@ export default async function handler(
       }
       res.status(200).json(data);
       break;
+    case "PUT":
+      const { title, content, category } = req.body;
+      const { error: updateError } = await supabase
+        .from("posts")
+        .update({ title, content, category })
+        .eq("id", id);
+
+      if (updateError) {
+        res.status(500).json({ error: updateError.message });
+      }
+      res.status(200).json({ message: "更新に成功しました" });
+      break;
     case "DELETE":
       const { error: deleteError } = await supabase
         .from("posts")
