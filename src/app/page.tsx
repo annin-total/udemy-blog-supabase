@@ -4,7 +4,7 @@ import ArticleList from "./components/ArticleList";
 export default async function Home() {
   // const articles = await getAllArticles();
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-  const res = await fetch(`${apiUrl}/api/`, {
+  const res = await fetch(`${apiUrl}/api/blog`, {
     cache: "no-store",
   });
 

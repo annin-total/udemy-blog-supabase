@@ -22,7 +22,7 @@ function CreateBlogPage() {
     setImage("/images/sample-image1.jpg");
     // await createArticle(id, title, content, image, category);
     const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-    await fetch(`${apiUrl}/api/create`, {
+    await fetch(`${apiUrl}/api/blog`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

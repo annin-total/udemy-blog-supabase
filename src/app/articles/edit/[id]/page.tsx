@@ -13,7 +13,7 @@ function EditBlogPage({ params }: { params: { id: string } }) {
   useEffect(() => {
     const fetchArticle = async () => {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-      const res = await fetch(`${apiUrl}/api/${params.id}`);
+      const res = await fetch(`${apiUrl}/api/blog/${params.id}`);
       const article = await res.json();
 
       setTitle(article.title);
@@ -30,7 +30,7 @@ function EditBlogPage({ params }: { params: { id: string } }) {
 
     try {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-      const res = await fetch(`${apiUrl}/api/${params.id}`, {
+      const res = await fetch(`${apiUrl}/api/blog/${params.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

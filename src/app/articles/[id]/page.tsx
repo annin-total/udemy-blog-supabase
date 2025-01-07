@@ -5,14 +5,14 @@ import EditButton from "@/app/components/EditButton";
 
 async function Article({ params }: { params: { id: string } }) {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-  const res = await fetch(`${apiUrl}/api/${params.id}`, {
-    next: { revalidate: 10 },
+  const res = await fetch(`${apiUrl}/api/blog/${params.id}`, {
+    next: { revalidate: 1 },
   });
 
   const article = await res.json();
 
   return (
-    <div className="max-w-6xl mx-auto py-8 px-4 md:px-8">
+    <div className="max-w-4xl mx-auto py-8 px-4 md:px-8">
       <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
         <div className="relative h-[400px] md:h-[500px]">
           <Image
